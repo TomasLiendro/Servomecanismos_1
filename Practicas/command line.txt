@@ -1,0 +1,5 @@
+To compile: 
+g++ -o program program.cpp
+
+To run:
+program
