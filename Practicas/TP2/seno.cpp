@@ -9,8 +9,16 @@
 using duration = std::chrono::duration<double>;
 using time_point = std::chrono::steady_clock::time_point;
 
-duration espera_siguiente_intervalo(const time_point &t, int n, const duration &Dt);
 
+// funcion de espera
+
+duration espera_siguiente_intervalo(const time_point &t, int n, const duration &Dt)
+{
+    duration tiempo = n * Dt - (std::chrono::steady_clock::now() - t);
+    if (tiempo.count() > 0)
+        std::this_thread::sleep_for(tiempo);
+    return tiempo;
+}
 int main()
 {
     // definicion de parametros del experimento como
@@ -73,14 +81,4 @@ int main()
         fout << t[i].count() << "\t" << u[i] << std::endl;
     fout.close();
     return 0;
-}
-
-// funcion de espera
-
-duration espera_siguiente_intervalo(const time_point &t, int n, const duration &Dt)
-{
-    duration tiempo = n * Dt - (std::chrono::steady_clock::now() - t);
-    if (tiempo.count() > 0)
-        std::this_thread::sleep_for(tiempo);
-    return tiempo;
 }

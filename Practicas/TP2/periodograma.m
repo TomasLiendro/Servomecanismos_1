@@ -19,7 +19,7 @@ rng default
 t = 0:Dt:(Ns-1)*Dt;
 % Importo la funcion
 % data = load('Seno_1024_001.txt');
-data = load('Chirp_1024_001.txt');
+data = load('Chirp.txt');
 % data = load('RndSteps_1024_001.txt');
 
 x = data(:,2);
@@ -49,10 +49,10 @@ freq = 0:Fs/length(x):Fs/2; % Vector de frecuencias desde 0 hasta la Frec de
 plot(t, xr);
 title('Señal Ficticia')
 xlabel('Tiempo [seg]')
-ylabel('Señal [??]')
+ylabel('Señal')
 figure
 plot(freq,10*log10(psdx))
 grid on
-title('Periodograma Usando FFT')
+title('Periodograma de la función seno Usando FFT')
 xlabel('Frequencia (Hz)')
 ylabel('Potencia/Frequencia (dB/Hz)')
