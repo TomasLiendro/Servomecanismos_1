@@ -1,5 +1,7 @@
 To compile: 
 g++ -o program program.cpp
 
+g++−Wall−std=c++11 ejemplo.cpp−o  ejemplo.exe
+
 To run:
-program
+.\program
